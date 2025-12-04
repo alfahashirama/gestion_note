@@ -14,8 +14,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: '1mb' }));
 
+// ============================================
+// ROUTE DE SANTÉ POUR KUBERNETES (À AJOUTER)
+// ============================================
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok',
+    message: 'Notes API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy' });
+});
+// ============================================
+
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
-app.use('/auth', limiter, require('./routes/user')); // Ligne ~15, probable source d'erreur
+app.use('/auth', limiter, require('./routes/user'));
 app.use('/etablissements', authMiddleware, require('./routes/etablissement'));
 app.use('/professeurs', authMiddleware, require('./routes/professeur'));
 app.use('/etudiants', authMiddleware, require('./routes/etudiant'));
