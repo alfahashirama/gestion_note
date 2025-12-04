@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: gestion-notes-prod
   GKE_CLUSTER: notes-cluster
-  GKE_ZONE: europe-west1-b
+  GKE_ZONE: us-central1
   DOCKERHUB_USERNAME: alfa2003
 
 jobs:
