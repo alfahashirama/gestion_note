@@ -92,7 +92,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           build-args: |
             VITE_API_URL=/api
-            VITE_RECAPTCHA_SITE_KEY=6Ld1uiAsAAAAAEyA-U-DKzeZ66RvnRgAR3vG5KNj
+            VITE_RECAPTCHA_SITE_KEY=6LdC4yAsAAAAAKWRPF95mJ3VT3Cosht5sEXkAAj-
           cache-from: type=registry,ref=${{ env.FRONTEND_IMAGE }}:buildcache
           cache-to: type=registry,ref=${{ env.FRONTEND_IMAGE }}:buildcache,mode=max
 
